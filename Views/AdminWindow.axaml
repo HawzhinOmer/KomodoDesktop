@@ -1,0 +1,178 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="KomodoDesktop.Views.AdminWindow"
+        Title="Komodo — Admin"
+        Width="1100" Height="600"
+        WindowStartupLocation="CenterScreen"
+        Background="#0D3347">
+
+  <DockPanel Margin="16">
+
+    <!-- Status bar at bottom -->
+    <Border DockPanel.Dock="Bottom" Margin="0,10,0,0">
+      <TextBlock x:Name="LblStatus"
+                 Foreground="#80CBC4"
+                 FontSize="13"
+                 HorizontalAlignment="Center"/>
+    </Border>
+
+    <Grid ColumnDefinitions="2.2*,3*">
+
+      <!-- ── LEFT PANEL ─────────────────────────────────────── -->
+      <StackPanel Grid.Column="0" Margin="0,0,12,0" Spacing="8">
+
+        <!-- Inputs -->
+        <TextBlock Text="Food Name" Foreground="White" FontSize="13"/>
+        <TextBox x:Name="TxtFoodName" Height="34" CornerRadius="4"/>
+
+        <TextBlock Text="Price" Foreground="White" FontSize="13" Margin="0,4,0,0"/>
+        <TextBox x:Name="TxtPrice" Height="34" CornerRadius="4"/>
+
+        <!-- INSERT -->
+        <TextBlock Text="Insert" Foreground="#CE93D8" FontSize="13"
+                   FontWeight="SemiBold" Margin="0,10,0,0"/>
+        <Grid ColumnDefinitions="*,*,*,*" Height="36">
+          <Button Grid.Column="0" Content="Fast Food" Tag="fastfood"
+                  Background="#7B1FA2" Foreground="White" CornerRadius="3"
+                  Margin="0,0,3,0" HorizontalAlignment="Stretch"
+                  Click="OnInsert"/>
+          <Button Grid.Column="1" Content="East Food" Tag="eastfood"
+                  Background="#7B1FA2" Foreground="White" CornerRadius="3"
+                  Margin="0,0,3,0" HorizontalAlignment="Stretch"
+                  Click="OnInsert"/>
+          <Button Grid.Column="2" Content="West Food" Tag="westfood"
+                  Background="#7B1FA2" Foreground="White" CornerRadius="3"
+                  Margin="0,0,3,0" HorizontalAlignment="Stretch"
+                  Click="OnInsert"/>
+          <Button Grid.Column="3" Content="Drink" Tag="drink"
+                  Background="#7B1FA2" Foreground="White" CornerRadius="3"
+                  HorizontalAlignment="Stretch"
+                  Click="OnInsert"/>
+        </Grid>
+
+        <!-- UPDATE -->
+        <TextBlock Text="Update" Foreground="#80CBC4" FontSize="13"
+                   FontWeight="SemiBold" Margin="0,4,0,0"/>
+        <Grid ColumnDefinitions="*,*,*,*" Height="36">
+          <Button Grid.Column="0" Content="Fast Food" Tag="fastfood"
+                  Background="#00695C" Foreground="White" CornerRadius="3"
+                  Margin="0,0,3,0" HorizontalAlignment="Stretch"
+                  Click="OnUpdate"/>
+          <Button Grid.Column="1" Content="East Food" Tag="eastfood"
+                  Background="#00695C" Foreground="White" CornerRadius="3"
+                  Margin="0,0,3,0" HorizontalAlignment="Stretch"
+                  Click="OnUpdate"/>
+          <Button Grid.Column="2" Content="West Food" Tag="westfood"
+                  Background="#00695C" Foreground="White" CornerRadius="3"
+                  Margin="0,0,3,0" HorizontalAlignment="Stretch"
+                  Click="OnUpdate"/>
+          <Button Grid.Column="3" Content="Drink" Tag="drink"
+                  Background="#00695C" Foreground="White" CornerRadius="3"
+                  HorizontalAlignment="Stretch"
+                  Click="OnUpdate"/>
+        </Grid>
+
+        <!-- DELETE -->
+        <TextBlock Text="Delete" Foreground="#FFAB91" FontSize="13"
+                   FontWeight="SemiBold" Margin="0,4,0,0"/>
+        <Grid ColumnDefinitions="*,*,*,*" Height="36">
+          <Button Grid.Column="0" Content="Fast Food" Tag="fastfood"
+                  Background="#BF360C" Foreground="White" CornerRadius="3"
+                  Margin="0,0,3,0" HorizontalAlignment="Stretch"
+                  Click="OnDelete"/>
+          <Button Grid.Column="1" Content="East Food" Tag="eastfood"
+                  Background="#BF360C" Foreground="White" CornerRadius="3"
+                  Margin="0,0,3,0" HorizontalAlignment="Stretch"
+                  Click="OnDelete"/>
+          <Button Grid.Column="2" Content="West Food" Tag="westfood"
+                  Background="#BF360C" Foreground="White" CornerRadius="3"
+                  Margin="0,0,3,0" HorizontalAlignment="Stretch"
+                  Click="OnDelete"/>
+          <Button Grid.Column="3" Content="Drink" Tag="drink"
+                  Background="#BF360C" Foreground="White" CornerRadius="3"
+                  HorizontalAlignment="Stretch"
+                  Click="OnDelete"/>
+        </Grid>
+
+        <!-- SEARCH -->
+        <TextBlock Text="Search" Foreground="#B0BEC5" FontSize="13"
+                   FontWeight="SemiBold" Margin="0,4,0,0"/>
+        <Grid ColumnDefinitions="*,*,*,*" Height="36">
+          <Button Grid.Column="0" Content="Fast Food" Tag="fastfood"
+                  Background="#455A64" Foreground="White" CornerRadius="3"
+                  Margin="0,0,3,0" HorizontalAlignment="Stretch"
+                  Click="OnSearch"/>
+          <Button Grid.Column="1" Content="East Food" Tag="eastfood"
+                  Background="#455A64" Foreground="White" CornerRadius="3"
+                  Margin="0,0,3,0" HorizontalAlignment="Stretch"
+                  Click="OnSearch"/>
+          <Button Grid.Column="2" Content="West Food" Tag="westfood"
+                  Background="#455A64" Foreground="White" CornerRadius="3"
+                  Margin="0,0,3,0" HorizontalAlignment="Stretch"
+                  Click="OnSearch"/>
+          <Button Grid.Column="3" Content="Drink" Tag="drink"
+                  Background="#455A64" Foreground="White" CornerRadius="3"
+                  HorizontalAlignment="Stretch"
+                  Click="OnSearch"/>
+        </Grid>
+
+        <!-- LOGOUT -->
+<Button Content="Manage Users"
+        Background="#1565C0" Foreground="White"
+        HorizontalAlignment="Stretch" Height="40"
+        CornerRadius="4" Margin="0,16,0,0"
+        Click="OnManageUsers"/>
+<Button Content="Logout"
+        Background="#37474F" Foreground="White"
+        HorizontalAlignment="Stretch" Height="40"
+        CornerRadius="4" Margin="0,6,0,0"
+        Click="OnLogout"/>
+      </StackPanel>
+
+      <!-- ── RIGHT PANEL ────────────────────────────────────── -->
+      <Grid Grid.Column="1" RowDefinitions="*,Auto">
+
+        <!-- DataGrid -->
+        <DataGrid x:Name="FoodGrid"
+                  Grid.Row="0"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  SelectionMode="Single"
+                  CanUserReorderColumns="False"
+                  CanUserResizeColumns="True"
+                  Background="#102840"
+                  RowBackground="#102840"
+                  GridLinesVisibility="Horizontal">
+          <DataGrid.Columns>
+            <DataGridTextColumn Header="ID"        Binding="{Binding Id}"       Width="55"/>
+            <DataGridTextColumn Header="Food Name" Binding="{Binding FoodName}" Width="*"/>
+            <DataGridTextColumn Header="Price"     Binding="{Binding Price}"    Width="80"/>
+            <DataGridTextColumn Header="Category"  Binding="{Binding Category}" Width="95"/>
+          </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- View-all category buttons -->
+        <Grid Grid.Row="1" ColumnDefinitions="*,*" RowDefinitions="*,*"
+              Height="88" Margin="0,8,0,0">
+          <Button Grid.Row="0" Grid.Column="0" Content="Fast Food" Tag="fastfood"
+                  Background="#B71C1C" Foreground="White"
+                  HorizontalAlignment="Stretch" CornerRadius="3"
+                  Margin="0,0,4,4" Click="OnViewCategory"/>
+          <Button Grid.Row="0" Grid.Column="1" Content="East Food" Tag="eastfood"
+                  Background="#B71C1C" Foreground="White"
+                  HorizontalAlignment="Stretch" CornerRadius="3"
+                  Margin="4,0,0,4" Click="OnViewCategory"/>
+          <Button Grid.Row="1" Grid.Column="0" Content="West Food" Tag="westfood"
+                  Background="#B71C1C" Foreground="White"
+                  HorizontalAlignment="Stretch" CornerRadius="3"
+                  Margin="0,0,4,0" Click="OnViewCategory"/>
+          <Button Grid.Row="1" Grid.Column="1" Content="Drink" Tag="drink"
+                  Background="#B71C1C" Foreground="White"
+                  HorizontalAlignment="Stretch" CornerRadius="3"
+                  Margin="4,0,0,0" Click="OnViewCategory"/>
+        </Grid>
+
+      </Grid>
+    </Grid>
+  </DockPanel>
+</Window>

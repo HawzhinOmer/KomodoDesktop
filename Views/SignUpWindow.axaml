@@ -1,0 +1,53 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="KomodoDesktop.Views.SignUpWindow"
+        Title="Komodo — Sign Up"
+        Width="400" Height="370"
+        CanResize="False"
+        WindowStartupLocation="CenterOwner"
+        Background="#0D3347">
+
+  <StackPanel Margin="35,30,35,30" Spacing="10">
+
+    <TextBlock Text="Sign Up"
+               FontSize="24" FontWeight="Bold"
+               Foreground="White"
+               HorizontalAlignment="Center"
+               Margin="0,0,0,10"/>
+
+    <TextBlock Text="Username" Foreground="White" FontSize="13"/>
+    <TextBox x:Name="TxtUsername" Height="34" CornerRadius="4"/>
+
+    <TextBlock Text="Password" Foreground="White" FontSize="13" Margin="0,5,0,0"/>
+    <TextBox x:Name="TxtPassword" PasswordChar="*" Height="34" CornerRadius="4"/>
+
+    <TextBlock Text="Role" Foreground="White" FontSize="13" Margin="0,5,0,0"/>
+    <ComboBox x:Name="CmbRole" HorizontalAlignment="Stretch" Height="34">
+      <ComboBoxItem Content="cashier" IsSelected="True"/>
+      <ComboBoxItem Content="admin"/>
+    </ComboBox>
+
+    <Grid ColumnDefinitions="*,*" Margin="0,14,0,0">
+      <Button Grid.Column="0"
+              Content="Create Account"
+              Background="#00695C" Foreground="White"
+              HorizontalAlignment="Stretch" Height="40"
+              CornerRadius="4" Margin="0,0,5,0"
+              Click="OnCreate"/>
+      <Button Grid.Column="1"
+              Content="Cancel"
+              Background="#546E7A" Foreground="White"
+              HorizontalAlignment="Stretch" Height="40"
+              CornerRadius="4" Margin="5,0,0,0"
+              Click="OnCancel"/>
+    </Grid>
+
+    <TextBlock x:Name="LblMessage"
+               Foreground="#FF5252"
+               TextAlignment="Center"
+               FontSize="13"
+               Margin="0,6,0,0"
+               TextWrapping="Wrap"/>
+
+  </StackPanel>
+</Window>

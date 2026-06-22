@@ -1,0 +1,90 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="KomodoDesktop.Views.CashierWindow"
+        Title="Komodo — Cashier"
+        Width="750" Height="480"
+        WindowStartupLocation="CenterScreen"
+        Background="#0D3347">
+
+  <Grid ColumnDefinitions="1.6*,*" Margin="16">
+
+    <!-- LEFT: DataGrid -->
+    <Grid Grid.Column="0" RowDefinitions="*,Auto" Margin="0,0,12,0">
+
+      <DataGrid x:Name="FoodGrid"
+                Grid.Row="0"
+                AutoGenerateColumns="False"
+                IsReadOnly="True"
+                SelectionMode="Single"
+                CanUserReorderColumns="False"
+                Background="#102840"
+                RowBackground="#102840"
+                GridLinesVisibility="Horizontal">
+        <DataGrid.Columns>
+          <DataGridTextColumn Header="ID"        Binding="{Binding Id}"       Width="55"/>
+          <DataGridTextColumn Header="Food Name" Binding="{Binding FoodName}" Width="*"/>
+          <DataGridTextColumn Header="Price"     Binding="{Binding Price}"    Width="80"/>
+        </DataGrid.Columns>
+      </DataGrid>
+
+      <TextBlock x:Name="LblStatus"
+                 Grid.Row="1"
+                 Foreground="#80CBC4"
+                 FontSize="12"
+                 HorizontalAlignment="Center"
+                 Margin="0,6,0,0"/>
+    </Grid>
+
+    <!-- RIGHT: Controls -->
+    <StackPanel Grid.Column="1" Spacing="10" VerticalAlignment="Center">
+
+      <Button Content="Fast Food" Tag="fastfood"
+              Background="#B71C1C" Foreground="White"
+              HorizontalAlignment="Stretch" Height="46"
+              CornerRadius="4" Click="OnCategory"/>
+
+      <Button Content="East Food" Tag="eastfood"
+              Background="#B71C1C" Foreground="White"
+              HorizontalAlignment="Stretch" Height="46"
+              CornerRadius="4" Click="OnCategory"/>
+
+      <Button Content="West Food" Tag="westfood"
+              Background="#B71C1C" Foreground="White"
+              HorizontalAlignment="Stretch" Height="46"
+              CornerRadius="4" Click="OnCategory"/>
+
+      <Button Content="Drink" Tag="drink"
+              Background="#B71C1C" Foreground="White"
+              HorizontalAlignment="Stretch" Height="46"
+              CornerRadius="4" Click="OnCategory"/>
+
+      <!-- Total Price -->
+      <Border Height="1" Background="#1E4A6A" Margin="0,10,0,10"/>
+
+      <TextBlock Text="Total Price"
+                 Foreground="White"
+                 FontSize="20"
+                 FontWeight="Bold"
+                 HorizontalAlignment="Center"/>
+
+      <TextBox x:Name="TxtTotal"
+               IsReadOnly="True"
+               Text="0.00"
+               FontSize="22"
+               FontWeight="Bold"
+               Foreground="White"
+               Background="#102840"
+               BorderBrush="#1E4A6A"
+               TextAlignment="Center"
+               Height="46"
+               CornerRadius="4"/>
+
+      <Button Content="Logout"
+              Background="#37474F" Foreground="White"
+              HorizontalAlignment="Stretch" Height="40"
+              CornerRadius="4" Margin="0,10,0,0"
+              Click="OnLogout"/>
+
+    </StackPanel>
+  </Grid>
+</Window>

@@ -1,0 +1,80 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="KomodoDesktop.Views.LoginWindow"
+        Title="Komodo — Login"
+        Width="680" Height="420"
+        CanResize="False"
+        WindowStartupLocation="CenterScreen"
+        Background="#0D3347">
+
+  <Grid ColumnDefinitions="1.3*,*" Margin="35,25,35,25">
+
+    <!-- Left: Form -->
+    <StackPanel Grid.Column="0" VerticalAlignment="Center" Spacing="10" Margin="0,0,20,0">
+
+      <TextBlock Text="Login"
+                 FontSize="28" FontWeight="Bold"
+                 Foreground="White"
+                 HorizontalAlignment="Center"
+                 Margin="0,0,0,15"/>
+
+      <TextBlock Text="Username" Foreground="White" FontSize="14"/>
+      <TextBox x:Name="TxtUsername" Height="36" CornerRadius="4"/>
+
+      <TextBlock Text="Password" Foreground="White" FontSize="14" Margin="0,5,0,0"/>
+      <TextBox x:Name="TxtPassword" PasswordChar="*" Height="36" CornerRadius="4"/>
+
+      <Grid ColumnDefinitions="*,*" Margin="0,12,0,0">
+        <Button Grid.Column="0"
+                Content="Login Admin"
+                Background="#C62828" Foreground="White"
+                HorizontalAlignment="Stretch" Height="40"
+                CornerRadius="4" Margin="0,0,5,0"
+                Click="OnLoginAdmin"/>
+        <Button Grid.Column="1"
+                Content="Login Cashier"
+                Background="#C62828" Foreground="White"
+                HorizontalAlignment="Stretch" Height="40"
+                CornerRadius="4" Margin="5,0,0,0"
+                Click="OnLoginCashier"/>
+      </Grid>
+
+      <Grid ColumnDefinitions="*,*" Margin="0,6,0,0">
+        <Button Grid.Column="0"
+                Content="Clear"
+                Background="#00838F" Foreground="White"
+                HorizontalAlignment="Stretch" Height="38"
+                CornerRadius="4" Margin="0,0,5,0"
+                Click="OnClear"/>
+        <Button Grid.Column="1"
+                Content="Close"
+                Background="#B71C1C" Foreground="White"
+                HorizontalAlignment="Stretch" Height="38"
+                CornerRadius="4" Margin="5,0,0,0"
+                Click="OnClose"/>
+      </Grid>
+
+      <TextBlock x:Name="LblError"
+                 Foreground="#FF5252"
+                 TextAlignment="Center"
+                 FontSize="13"
+                 Margin="0,8,0,0"
+                 TextWrapping="Wrap"/>
+    </StackPanel>
+
+    <!-- Right: Icon -->
+    <StackPanel Grid.Column="1"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center">
+      <TextBlock Text="👥"
+                 FontSize="90"
+                 HorizontalAlignment="Center"/>
+      <TextBlock Text="Log-In"
+                 FontSize="22"
+                 Foreground="#78909C"
+                 HorizontalAlignment="Center"
+                 Margin="0,12,0,0"/>
+    </StackPanel>
+
+  </Grid>
+</Window>
